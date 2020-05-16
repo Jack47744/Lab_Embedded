@@ -855,7 +855,7 @@ int isWin(){
  800085c:	2300      	movs	r3, #0
  800085e:	60fb      	str	r3, [r7, #12]
  8000860:	e026      	b.n	80008b0 <isWin+0x70>
-			if(showTable[i][j] == ' ' || isIn(c, showTable[i][j], 8)){
+			if(showTable[i][j] == ' ' || isIn(c, showTable[i][j], 8) == 1){
  8000862:	4921      	ldr	r1, [pc, #132]	; (80008e8 <isWin+0xa8>)
  8000864:	693a      	ldr	r2, [r7, #16]
  8000866:	4613      	mov	r3, r2
@@ -886,8 +886,8 @@ int isWin(){
  8000898:	4618      	mov	r0, r3
  800089a:	f000 f82b 	bl	80008f4 <isIn>
  800089e:	4603      	mov	r3, r0
- 80008a0:	2b00      	cmp	r3, #0
- 80008a2:	d002      	beq.n	80008aa <isWin+0x6a>
+ 80008a0:	2b01      	cmp	r3, #1
+ 80008a2:	d102      	bne.n	80008aa <isWin+0x6a>
 				count++;
  80008a4:	697b      	ldr	r3, [r7, #20]
  80008a6:	3301      	adds	r3, #1
@@ -2036,7 +2036,7 @@ void startLayout(){
  800112c:	2300      	movs	r3, #0
  800112e:	62bb      	str	r3, [r7, #40]	; 0x28
  8001130:	e00d      	b.n	800114e <startLayout+0x13a>
-		display[20][i+26] = ch8[i];
+		display[23][i+26] = ch8[i];
  8001132:	6abb      	ldr	r3, [r7, #40]	; 0x28
  8001134:	68ba      	ldr	r2, [r7, #8]
  8001136:	441a      	add	r2, r3
@@ -2046,7 +2046,7 @@ void startLayout(){
  800113e:	4a19      	ldr	r2, [pc, #100]	; (80011a4 <startLayout+0x190>)
  8001140:	4413      	add	r3, r2
  8001142:	460a      	mov	r2, r1
- 8001144:	f883 2640 	strb.w	r2, [r3, #1600]	; 0x640
+ 8001144:	f883 2730 	strb.w	r2, [r3, #1840]	; 0x730
 	for(int i=0; i<28; i++){
  8001148:	6abb      	ldr	r3, [r7, #40]	; 0x28
  800114a:	3301      	adds	r3, #1
